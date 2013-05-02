@@ -1,0 +1,27 @@
+// Grid column settings ------------------------------------------------------
+// Change these settings to manipulate the number of colunms in each screen size
+$s-columns: 4;
+$m-columns: 8;
+$l-columns: 12;
+$xl-columns: 16;
+
+// Shortcuts -------------------------------------------------------------
+// These are shortcut classes that are generated.  You can add your own, just be sure to add to all three lists
+$fractions: fth, qtr, thrd, fth-2, half, fth-3, thrd-2, qtr-3, fth-4, full;
+$fraction-divisors: 5, 4, 3, 5, 2, 5, 3, 4, 5, 1;
+$fraction-multipliers: 1, 1, 1, 2, 1, 3, 2, 3, 4, 1;
+
+// Media screen widths ----------------------------------------------------
+// Xtra Large - Target Screens: Large Desktop Monitors
+$xl-min-width: 1210px;
+
+// Large - Target Screens: Avg Desktop Monitors
+$l-min-width: 980px;
+$l-max-width: ($xl-min-width - 1);
+
+// Medium - Target Screens: Tablets, Low Res Desktop Monitors
+$m-min-width: 768px;
+$m-max-width: ($l-min-width - 1);
+
+// Small (Up to Medium min-width) - Target Screens: Smartphones, Tablets
+$s-max-width: ($m-min-width - 1);

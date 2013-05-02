@@ -1,0 +1,99 @@
+// Universal Sizes (.over-qtr etc.)
+@for $i from 1 through length($fractions) {
+
+    @if nth($fractions, $i) != 'full' {
+        .over-#{nth($fractions, $i)} {            
+            @include box-over($s-columns, ($s-columns/nth($fraction-divisors, $i)) * nth($fraction-multipliers, $i));
+        }            
+    }      
+}
+
+// Mobile Devices
+@media (max-width: $s-max-width) {
+
+    // Universal Sizes (.s-over-half, etc.)
+    @for $i from 1 through length($fractions) {
+
+        @if nth($fractions, $i) != 'full' {
+            .s-over-#{nth($fractions, $i)} {            
+                @include box-over($s-columns, ($s-columns/nth($fraction-divisors, $i)) * nth($fraction-multipliers, $i));
+            }            
+        }      
+    }
+
+    // Small Sizes (Overides universals) (.s-over-1, .s-over-2, etc.)
+    @for $i from 1 through ($s-columns - 1) {
+        .s-over-#{$i} {
+            @include box-over($s-columns, $i);
+        }
+    }
+
+}
+
+
+// Portrait tablet
+@media (min-width: $m-min-width) and (max-width: $m-max-width) {
+
+    // Universal Sizes (.m-over-half, etc.)
+    @for $i from 1 through length($fractions) {
+
+        @if nth($fractions, $i) != 'full' {
+            .m-over-#{nth($fractions, $i)} {            
+                @include box-over($m-columns, ($m-columns/nth($fraction-divisors, $i)) * nth($fraction-multipliers, $i));
+            }            
+        }      
+    }
+
+    // Small Sizes (Overides universals) (.m-over-1, .m-over-2, etc.)
+    @for $i from 1 through ($m-columns - 1) {
+        .m-over-#{$i} {
+            @include box-over($m-columns, $i);
+        }
+    }
+
+}
+
+
+// Landscape tablet or desktop
+@media (min-width: $l-min-width) and (max-width: $l-max-width) {
+
+    // Universal Sizes (.l-over-half, etc.)
+    @for $i from 1 through length($fractions) {
+
+        @if nth($fractions, $i) != 'full' {
+            .l-over-#{nth($fractions, $i)} {            
+                @include box-over($l-columns, ($l-columns/nth($fraction-divisors, $i)) * nth($fraction-multipliers, $i));
+            }
+        }
+    }
+
+    // Small Sizes (Overides universals) (.l-over-1, .l-over-2, etc.)
+    @for $i from 1 through ($l-columns - 1) {
+        .l-over-#{$i} {
+            @include box-over($l-columns, $i);
+        }
+    }
+
+}
+
+// Large desktop
+@media (min-width: $xl-min-width) {
+
+    // Universal Sizes (.l-over-half, etc.)
+    @for $i from 1 through length($fractions) {
+
+        @if nth($fractions, $i) != 'full' {
+            .xl-over-#{nth($fractions, $i)} {            
+                @include box-over($xl-columns, ($xl-columns/nth($fraction-divisors, $i)) * nth($fraction-multipliers, $i));
+            }
+        }
+    }
+
+    // Small Sizes (Overides universals) (.l-over-1, .l-over-2, etc.)
+    @for $i from 1 through ($xl-columns - 1) {
+        .l-over-#{$i} {
+            @include box-over($xl-columns, $i);
+        }
+    }
+
+}
