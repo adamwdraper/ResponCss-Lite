@@ -16,16 +16,12 @@
 
 // Box base style --------------------------------------------
 @mixin box($size_cols, $num_cols) {
-    float: left;
-    display:block;
-    $base: (1 / ($size_cols)) * 100%;
-    width: $num_cols * $base;
+    width: $num_cols * ((1 / ($size_cols)) * 100%);
 }
 
 // Margin for overs ----------------------------------------------
 @mixin box-over($size_cols, $num_cols) {
-    $base: (1 / ($size_cols)) * 100%;
-    margin-left: $num_cols * $base;
+    margin-left: $num_cols * ((1 / ($size_cols)) * 100%);
 }
 
 // Margins for Centered boxes --------------------------------------------------
@@ -35,12 +31,4 @@
     $margin: $margin_cols * $base;
     margin-right: $margin;
     margin-left: $margin;
-}
-
-// Box base style -----------------------------------------------------
-@mixin b-box($size_cols, $num_cols) {
-    float: left;
-    display:block;    
-    $base: (1 / ($size_cols)) * 100%;
-    width: $num_cols * $base;
 }

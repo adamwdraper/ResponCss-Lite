@@ -1,24 +1,35 @@
-// Universal Sizes (.qtr etc.)
-@for $i from 1 through length($fractions) {        
-    .#{nth($fractions, $i)} {            
-        @include box($s-columns, ($s-columns/nth($fraction-divisors, $i)) * nth($fraction-multipliers, $i));
+%box-base {
+    display: block;
+    float: left;
+}
 
+// Universal Sizes (.s-half, etc.)
+@for $i from 1 through length($fractions) {
+    .#{nth($fractions, $i)} {
+        @include box(nth($fraction-divisors, $i), nth($fraction-multipliers, $i));
+        @extend %box-base;
+        
         &.center {
-            @include center-margins($s-columns, ($s-columns/nth($fraction-divisors, $i)) * nth($fraction-multipliers, $i));
+            @include center-margins(nth($fraction-divisors, $i), nth($fraction-multipliers, $i));
         }
     }
 }
 
 // Mobile Devices
 @media (max-width: $s-max-width) {
+    %s-box-base {
+        display: block;
+        float: left;
+    }
 
     // Universal Sizes (.s-half, etc.)
-    @for $i from 1 through length($fractions) {        
-        .s-#{nth($fractions, $i)} {            
-            @include box($s-columns, ($s-columns/nth($fraction-divisors, $i)) * nth($fraction-multipliers, $i));
-
+    @for $i from 1 through length($fractions) {
+        .s-#{nth($fractions, $i)} {
+            @include box(nth($fraction-divisors, $i), nth($fraction-multipliers, $i));
+            @extend %s-box-base;
+            
             &.center {
-                @include center-margins($s-columns, ($s-columns/nth($fraction-divisors, $i)) * nth($fraction-multipliers, $i));
+                @include center-margins(nth($fraction-divisors, $i), nth($fraction-multipliers, $i));
             }
         }
     }
@@ -27,6 +38,7 @@
     @for $i from 1 through $s-columns {
         .s-#{$i} {
             @include box($s-columns, $i);
+            @extend %s-box-base;
 
             &.center {
                 @include center-margins($s-columns, $i);
@@ -35,18 +47,22 @@
     }
 
 }
-
  
 // // Portrait tablet
 @media (min-width: $m-min-width) and (max-width: $m-max-width) {
+    %m-box-base {
+        display: block;
+        float: left;
+    }
 
     // Universal Sizes (.m-half, etc.)
-    @for $i from 1 through length($fractions) {        
-        .m-#{nth($fractions, $i)} {            
-            @include box($m-columns, ($m-columns/nth($fraction-divisors, $i)) * nth($fraction-multipliers, $i));
+    @for $i from 1 through length($fractions) {
+        .m-#{nth($fractions, $i)} {
+            @include box(nth($fraction-divisors, $i), nth($fraction-multipliers, $i));
+            @extend %m-box-base;
 
             &.center {
-                @include center-margins($m-columns, ($m-columns/nth($fraction-divisors, $i)) * nth($fraction-multipliers, $i));
+                @include center-margins(nth($fraction-divisors, $i), nth($fraction-multipliers, $i));
             }
         }
     }
@@ -55,6 +71,7 @@
     @for $i from 1 through $m-columns {
         .m-#{$i} {
             @include box($m-columns, $i);
+            @extend %m-box-base;
 
             &.center {
                 @include center-margins($m-columns, $i);
@@ -66,14 +83,19 @@
  
 // Landscape tablet or desktop
 @media (min-width: $l-min-width) and (max-width: $l-max-width) {
+    %l-box-base {
+        display: block;
+        float: left;
+    }
 
     // Universal Sizes (.qtr, .l-half, etc.)
-    @for $i from 1 through length($fractions) {        
-        .l-#{nth($fractions, $i)} {            
-            @include box($l-columns, ($l-columns/nth($fraction-divisors, $i)) * nth($fraction-multipliers, $i));
+    @for $i from 1 through length($fractions) {
+        .l-#{nth($fractions, $i)} {
+            @include box(nth($fraction-divisors, $i), nth($fraction-multipliers, $i));
+            @extend %l-box-base;
 
             &.center {
-                @include center-margins($l-columns, ($l-columns/nth($fraction-divisors, $i)) * nth($fraction-multipliers, $i));
+                @include center-margins(nth($fraction-divisors, $i), nth($fraction-multipliers, $i));
             }
         }
     }
@@ -82,6 +104,7 @@
     @for $i from 1 through $l-columns {
         .l-#{$i} {
             @include box($l-columns, $i);
+            @extend %l-box-base;
 
             &.center {
                 @include center-margins($l-columns, $i);
@@ -90,18 +113,22 @@
     }
     
 }
-
  
 // // Large desktop
 @media (min-width: $xl-min-width) {
+    %xl-box-base {
+        display: block;
+        float: left;
+    }
 
     // Specific Universal Sizes (.xl-half, etc.)
-    @for $i from 1 through length($fractions) {        
-        .xl-#{nth($fractions, $i)} {            
-            @include box($xl-columns, ($xl-columns/nth($fraction-divisors, $i)) * nth($fraction-multipliers, $i));
+    @for $i from 1 through length($fractions) {
+        .xl-#{nth($fractions, $i)} {
+            @include box(nth($fraction-divisors, $i), nth($fraction-multipliers, $i));
+            @extend %xl-box-base;
 
             &.center {
-                @include center-margins($xl-columns, ($xl-columns/nth($fraction-divisors, $i)) * nth($fraction-multipliers, $i));
+                @include center-margins(nth($fraction-divisors, $i), nth($fraction-multipliers, $i));
             }
         }
     }
@@ -110,6 +137,7 @@
     @for $i from 1 through $xl-columns {
         .xl-#{$i} {
             @include box($xl-columns, $i);
+            @extend %xl-box-base;
 
             &.center {
                 @include center-margins($xl-columns, $i);

@@ -3,7 +3,7 @@
 
     @if nth($fractions, $i) != 'full' {
         .over-#{nth($fractions, $i)} {            
-            @include box-over($s-columns, ($s-columns/nth($fraction-divisors, $i)) * nth($fraction-multipliers, $i));
+            @include box-over(nth($fraction-divisors, $i), nth($fraction-multipliers, $i));
         }            
     }      
 }
@@ -16,7 +16,7 @@
 
         @if nth($fractions, $i) != 'full' {
             .s-over-#{nth($fractions, $i)} {            
-                @include box-over($s-columns, ($s-columns/nth($fraction-divisors, $i)) * nth($fraction-multipliers, $i));
+                @include box-over(nth($fraction-divisors, $i), nth($fraction-multipliers, $i));
             }            
         }      
     }
@@ -30,7 +30,6 @@
 
 }
 
-
 // Portrait tablet
 @media (min-width: $m-min-width) and (max-width: $m-max-width) {
 
@@ -39,7 +38,7 @@
 
         @if nth($fractions, $i) != 'full' {
             .m-over-#{nth($fractions, $i)} {            
-                @include box-over($m-columns, ($m-columns/nth($fraction-divisors, $i)) * nth($fraction-multipliers, $i));
+                @include box-over(nth($fraction-divisors, $i), nth($fraction-multipliers, $i));
             }            
         }      
     }
@@ -53,7 +52,6 @@
 
 }
 
-
 // Landscape tablet or desktop
 @media (min-width: $l-min-width) and (max-width: $l-max-width) {
 
@@ -62,7 +60,7 @@
 
         @if nth($fractions, $i) != 'full' {
             .l-over-#{nth($fractions, $i)} {            
-                @include box-over($l-columns, ($l-columns/nth($fraction-divisors, $i)) * nth($fraction-multipliers, $i));
+                @include box-over(nth($fraction-divisors, $i), nth($fraction-multipliers, $i));
             }
         }
     }
@@ -84,7 +82,7 @@
 
         @if nth($fractions, $i) != 'full' {
             .xl-over-#{nth($fractions, $i)} {            
-                @include box-over($xl-columns, ($xl-columns/nth($fraction-divisors, $i)) * nth($fraction-multipliers, $i));
+                @include box-over(nth($fraction-divisors, $i), nth($fraction-multipliers, $i));
             }
         }
     }
